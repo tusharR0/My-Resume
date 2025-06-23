@@ -60,7 +60,7 @@
     }
 
     .page {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 60px auto;
       padding: 40px;
       background: #fff;
@@ -77,59 +77,42 @@
       padding-bottom: 4px;
     }
 
-    .cert-list {
-      list-style: none;
-      padding: 0;
-      margin: 20px 0;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .cert-list li {
-      display: flex;
-      align-items: center;
-      background: #fff0fa;
-      padding: 15px 20px;
-      border-left: 5px solid #ff4f7b;
+    .cert-embed {
+      text-align: center;
+      margin-top: 40px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
       border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+
+    .cert-embed iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 12px;
       opacity: 0;
-      transform: translateX(-60px);
+      transform: translateY(40px);
+      transition: all 0.8s ease;
     }
 
-    .cert-list li.visible {
-      animation: slideIn 0.8s ease-out forwards;
+    .cert-embed iframe.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .cert-list li:hover {
-      transform: scale(1.02);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
-    }
-
-    .cert-list img {
-      width: 40px;
-      margin-right: 20px;
-    }
-
-    .cert-list a {
+    .cert-link a {
+      display: inline-block;
+      margin-top: 15px;
+      font-weight: 600;
       font-size: 1.1em;
       color: #6f1a44;
-      font-weight: 600;
       text-decoration: none;
+      transition: color 0.3s;
     }
 
-    .cert-list a:hover {
-      color: #ff3c66;
+    .cert-link a:hover {
+      color: #ff4f7b;
       text-decoration: underline;
-    }
-
-    @keyframes slideIn {
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
     }
 
     @media (max-width: 768px) {
@@ -137,13 +120,8 @@
         padding: 20px;
       }
 
-      .cert-list li {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .cert-list img {
-        margin-bottom: 10px;
+      .cert-embed iframe {
+        height: 400px;
       }
     }
   </style>
@@ -162,37 +140,35 @@
 
   <section class="page">
     <h2>Certificates</h2>
-    <ul class="cert-list">
-      <li>
-        <img src="images/hack.png" alt="HackerRank Logo">
-        <a href=https://www.hackerrank.com/certificates/59b320d4dfbc target="_blank">
-          JavaScript (Basic) - HackerRank
+
+    <div class="cert-embed">
+      <iframe 
+        src="https://www.hackerrank.com/certificates/59b320d4dfbc" 
+        loading="lazy"
+        class="slide-in"
+      ></iframe>
+      <p class="cert-link">
+        <a href="https://www.hackerrank.com/certificates/59b320d4dfbc" target="_blank">
+          Open Certificate in New Tab ↗
         </a>
-      </li>
-      <li>
-        <img src="images/hack.png" alt="HackerRank Logo">
-        <a href="https://www.hackerrank.com/certificates/6f882416d227" target="_blank">
-          SQL (Basic) - HackerRank
-        </a>
-      </li>
-    </ul>
+      </p>
+    </div>
   </section>
 
-  <!-- JavaScript for sliding effect -->
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target); // Animate only once
+          observer.unobserve(entry.target); // Only animate once
         }
       });
     }, {
       threshold: 0.1
     });
 
-    document.querySelectorAll('.cert-list li').forEach(li => {
-      observer.observe(li);
+    document.querySelectorAll('iframe.slide-in').forEach(el => {
+      observer.observe(el);
     });
   </script>
 </body>
