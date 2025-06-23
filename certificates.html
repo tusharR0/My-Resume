@@ -96,12 +96,12 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 1s ease forwards;
+      transform: translateX(-60px);
     }
 
-    .cert-list li:nth-child(1) { animation-delay: 0.2s; }
-    .cert-list li:nth-child(2) { animation-delay: 0.4s; }
+    .cert-list li.visible {
+      animation: slideIn 0.8s ease-out forwards;
+    }
 
     .cert-list li:hover {
       transform: scale(1.02);
@@ -125,10 +125,10 @@
       text-decoration: underline;
     }
 
-    @keyframes fadeUp {
+    @keyframes slideIn {
       to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(0);
       }
     }
 
@@ -178,6 +178,22 @@
     </ul>
   </section>
 
-  <script src="script/animation.js"></script>
+  <!-- JavaScript for sliding effect -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // Animate only once
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.cert-list li').forEach(li => {
+      observer.observe(li);
+    });
+  </script>
 </body>
 </html>
