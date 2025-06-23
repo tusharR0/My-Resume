@@ -6,47 +6,6 @@
   <title>Certificates - Tushar Raut</title>
   <link rel="stylesheet" href="style/main.css" />
   <style>
-    .cert-list {
-      list-style: none;
-      padding: 0;
-      margin: 20px 0;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .cert-list li {
-      display: flex;
-      align-items: center;
-      background: #fff0fa;
-      padding: 15px 20px;
-      border-left: 5px solid #ff4f7b;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .cert-list li:hover {
-      transform: scale(1.02);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
-    }
-
-    .cert-list img {
-      width: 40px;
-      margin-right: 20px;
-    }
-
-    .cert-list a {
-      font-size: 1.1em;
-      color: #6f1a44;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .cert-list a:hover {
-      color: #ff3c66;
-      text-decoration: underline;
-    }
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
@@ -100,49 +59,13 @@
       box-shadow: 0 6px 15px rgba(255, 79, 123, 0.4);
     }
 
-    .content-wrapper {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1000px;
+    .page {
+      max-width: 900px;
       margin: 60px auto;
       padding: 40px;
       background: #fff;
       border-radius: 20px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      gap: 40px;
-    }
-
-    .page {
-      flex: 2;
-    }
-
-    .logo-image {
-      flex: 1;
-      text-align: center;
-    }
-
-    .logo-image img {
-      width: 180px;
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      animation: fadeInRight 1s ease-in-out;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    }
-
-    .logo-image a {
-      display: block;
-      margin-top: 15px;
-      font-weight: 500;
-      text-decoration: none;
-      color: #6f1a44;
-      transition: color 0.3s;
-    }
-
-    .logo-image a:hover {
-      color: #ff4f7b;
-      text-decoration: underline;
     }
 
     h2 {
@@ -154,32 +77,73 @@
       padding-bottom: 4px;
     }
 
-    p {
-      font-size: 1.1rem;
-      line-height: 1.8;
+    .cert-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
-    @keyframes fadeInRight {
-      from {
-        opacity: 0;
-        transform: translateX(60px);
-      }
+    .cert-list li {
+      display: flex;
+      align-items: center;
+      background: #fff0fa;
+      padding: 15px 20px;
+      border-left: 5px solid #ff4f7b;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .cert-list li:nth-child(1) { animation-delay: 0.2s; }
+    .cert-list li:nth-child(2) { animation-delay: 0.4s; }
+
+    .cert-list li:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    }
+
+    .cert-list img {
+      width: 40px;
+      margin-right: 20px;
+    }
+
+    .cert-list a {
+      font-size: 1.1em;
+      color: #6f1a44;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .cert-list a:hover {
+      color: #ff3c66;
+      text-decoration: underline;
+    }
+
+    @keyframes fadeUp {
       to {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
       }
     }
 
     @media (max-width: 768px) {
-      .content-wrapper {
-        flex-direction: column;
-        text-align: center;
+      .page {
         padding: 20px;
       }
 
-      .logo-image img {
-        width: 140px;
-        margin-top: 20px;
+      .cert-list li {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cert-list img {
+        margin-bottom: 10px;
       }
     }
   </style>
@@ -200,13 +164,13 @@
     <h2>Certificates</h2>
     <ul class="cert-list">
       <li>
-        <img src=images\hack.png alt="HackerRank Logo">
-        <a href="https://www.hackerrank.com/certificates/bb29335859cf" target="_blank">
-          Python (Basic) - HackerRank
+        <img src="images/hack.png" alt="HackerRank Logo">
+        <a href=https://www.hackerrank.com/certificates/59b320d4dfbc target="_blank">
+          JavaScript (Basic) - HackerRank
         </a>
       </li>
       <li>
-        <img src=images\hack.png alt="HackerRank Logo">
+        <img src="images/hack.png" alt="HackerRank Logo">
         <a href="https://www.hackerrank.com/certificates/6f882416d227" target="_blank">
           SQL (Basic) - HackerRank
         </a>
