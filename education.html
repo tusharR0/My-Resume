@@ -4,142 +4,127 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Education - Tushar Raut</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style/main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background: linear-gradient(to right, #f9f2ff, #ffe6f9);
+      background: #fefcfb;
       color: #222;
-      scroll-behavior: smooth;
+      line-height: 1.6;
     }
 
     header {
+      background: linear-gradient(90deg, #a18cd1 0%, #fbc2eb 100%);
+      padding: 30px 0;
       text-align: center;
-      padding: 30px;
-      font-size: 2.8em;
-      font-style: italic;
-      background: linear-gradient(to right, #ff4f7b, #ff758c);
       color: white;
+      font-size: 2.8em;
       font-weight: 700;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     nav {
-      background: #35062f;
-      text-align: right;
-      padding: 12px 30px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 12px 20px;
     }
 
     nav ul {
       list-style: none;
-      margin: 0;
-      padding: 0;
       display: flex;
-      justify-content: flex-end;
-      gap: 18px;
+      justify-content: center;
+      gap: 20px;
       flex-wrap: wrap;
     }
 
     nav ul li a {
-      color: #fff;
-      background: #620042;
-      padding: 10px 18px;
-      border-radius: 10px;
       text-decoration: none;
+      color: #6a0572;
       font-weight: 500;
-      letter-spacing: 0.5px;
-      transition: all 0.4s ease;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background 0.3s ease;
     }
 
     nav ul li a:hover {
-      background: #ff4f7b;
-      transform: scale(1.08);
-      box-shadow: 0 6px 15px rgba(255, 79, 123, 0.4);
+      background: #fbe4ff;
     }
 
-    .content-wrapper {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1000px;
-      margin: 60px auto;
+    .main-section {
+      max-width: 1100px;
+      margin: 50px auto;
       padding: 40px;
       background: #fff;
       border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
       gap: 40px;
     }
 
-    .page {
-      flex: 2;
+    .main-section .text-content {
+      flex: 1.5;
     }
 
-    .logo-image {
+    .main-section .text-content h2 {
+      font-size: 2.2em;
+      margin-bottom: 15px;
+      color: #6a0572;
+      position: relative;
+    }
+
+    .main-section .text-content h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 60px;
+      height: 4px;
+      background: #d291bc;
+      border-radius: 5px;
+    }
+
+    .main-section .text-content p {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .main-section .illustration {
       flex: 1;
       text-align: center;
     }
 
-    .logo-image img {
-      width: 180px;
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      animation: fadeInRight 1s ease-in-out;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    .main-section .illustration img {
+      width: 100%;
+      max-width: 300px;
+      animation: float 3s ease-in-out infinite;
     }
 
-    .logo-image a {
-      display: block;
-      margin-top: 15px;
-      font-weight: 500;
-      text-decoration: none;
-      color: #6f1a44;
-      transition: color 0.3s;
-    }
-
-    .logo-image a:hover {
-      color: #ff4f7b;
-      text-decoration: underline;
-    }
-
-    h2 {
-      color: #6f1a44;
-      font-size: 2.2em;
-      border-bottom: 4px solid #6f1a44;
-      display: inline-block;
-      margin-bottom: 20px;
-      padding-bottom: 4px;
-    }
-
-    p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-
-    @keyframes fadeInRight {
-      from {
-        opacity: 0;
-        transform: translateX(60px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
     }
 
     @media (max-width: 768px) {
-      .content-wrapper {
-        flex-direction: column;
+      .main-section {
+        flex-direction: column-reverse;
         text-align: center;
         padding: 20px;
       }
 
-      .logo-image img {
-        width: 140px;
-        margin-top: 20px;
+      .main-section .text-content h2 {
+        font-size: 1.8em;
+      }
+
+      .main-section .illustration img {
+        max-width: 220px;
       }
     }
   </style>
@@ -158,20 +143,19 @@
     </ul>
   </nav>
 
-  <div class="content-wrapper">
-    <section class="page">
+  <section class="main-section">
+    <div class="text-content">
       <h2>Education</h2>
       <p><strong>B.Tech – Artificial Intelligence & Machine Learning</strong></p>
       <p>Currently pursuing from <strong>S.B. Jain Institute of Technology, Management & Research, Nagpur</strong>.</p>
       <p><em>Academic Year:</em> 2022 – 2026</p>
-    </section>
-
-    <div class="logo-image">
-      <img src=images\sb.png alt="SB Jain College Logo">
-      <a href="https://www.sbjain.org.in" target="_blank">Visit SB Jain Official Website</a>
+      <p><a href="https://www.sbjain.org.in" target="_blank" style="color:#6a0572; text-decoration: underline;">Visit Official Website</a></p>
     </div>
-  </div>
+    <div class="illustration">
+      <img src=images/exams-bro.png alt="Exams Illustration" />
+    </div>
+  </section>
 
-  <script src="script/animation.js"></script>
 </body>
 </html>
+
