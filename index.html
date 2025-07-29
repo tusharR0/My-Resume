@@ -5,90 +5,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Under Maintenance</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-</head>
   <style>
-  * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: "Poppins", sans-serif;
-  background: linear-gradient(to right, #d4fc79, #96e6a1);
-  color: #2d3436;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  text-align: center;
-  padding: 2rem;
-}
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(to right, #d4fc79, #96e6a1);
+      color: #2d3436;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 2rem;
+    }
 
-.container {
-  max-width: 600px;
-  background: white;
-  padding: 2rem;
-  border-radius: 1.5rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
+    .container {
+      max-width: 600px;
+      background: white;
+      padding: 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
 
-.hero-img {
-  width: 100%;
-  max-width: 350px;
-  margin-bottom: 1.5rem;
-}
+    .hero-img {
+      width: 100%;
+      max-width: 350px;
+      margin-bottom: 1.5rem;
+    }
 
-h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #222;
-}
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #222;
+    }
 
-p {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-}
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
 
-.highlight {
-  font-weight: bold;
-  color: #16a085;
-}
+    .highlight {
+      font-weight: bold;
+      color: #16a085;
+    }
 
-.countdown {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
 
-.countdown div {
-  background-color: #f1f2f6;
-  padding: 1rem;
-  border-radius: 1rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #2c3e50;
-}
+    .countdown div {
+      background-color: #f1f2f6;
+      padding: 1rem;
+      border-radius: 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #2c3e50;
+    }
 
-.countdown div span {
-  display: block;
-  font-size: 2rem;
-  color: #ff4d6d;
-  margin-bottom: 0.3rem;
-}
+    .countdown div span {
+      display: block;
+      font-size: 2rem;
+      color: #ff4d6d;
+      margin-bottom: 0.3rem;
+    }
 
-footer {
-  font-size: 0.9rem;
-  color: #888;
-}
-</style>
+    footer {
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
+</head>
 <body>
   <div class="container">
-    <img src=images/undraw_deliveries_qutl.png alt="Under Maintenance" class="hero-img">
+    <img
+      src="https://cdni.iconscout.com/illustration/premium/thumb/website-under-maintenance-2061966-1742259.png"
+      alt="Under Maintenance"
+      class="hero-img"
+    />
     <h1>We're Under Maintenance</h1>
-    <p>We're working hard to improve your experience.<br>We'll be back on <span class="highlight">30 July at 12 PM</span>.</p>
+    <p>
+      We're working hard to improve your experience.<br />
+      We'll be back on <span class="highlight">30 July at 12 PM</span>.
+    </p>
 
     <div class="countdown" id="countdown">
       <div><span id="days">00</span>Days</div>
@@ -113,10 +119,10 @@ footer {
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
       const seconds = Math.floor((diff / 1000) % 60);
 
-      document.getElementById("days").textContent = days.toString().padStart(2, "0");
-      document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
-      document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
-      document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
+      document.getElementById("days").textContent = String(days).padStart(2, '0');
+      document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+      document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+      document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
     };
 
     countdown();
@@ -124,3 +130,4 @@ footer {
   </script>
 </body>
 </html>
+
