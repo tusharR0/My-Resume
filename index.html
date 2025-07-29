@@ -3,75 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Under Maintenance - Tushar Raut</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom right, #dff5ff, #fef6fb);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      height: 100vh;
-      padding: 2rem;
-      color: #333;
-    }
-
-    img {
-      max-width: 350px;
-      width: 100%;
-      margin-bottom: 2rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      border-radius: 1rem;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: #2c3e50;
-    }
-
-    p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto 1rem;
-      color: #555;
-    }
-
-    .highlight {
-      color: #ff4d6d;
-      font-weight: 600;
-    }
-
-    .footer {
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      color: #888;
-    }
-  </style>
+  <title>Under Maintenance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="container">
+    <img src="https://cdni.iconscout.com/illustration/premium/thumb/website-under-maintenance-2061966-1742259.png alt="Under Maintenance" class="hero-img" />
+    <h1>We're Under Maintenance</h1>
+    <p>We're working hard to improve your experience.<br>We'll be back on <span class="highlight">30 July at 12 PM</span>.</p>
 
-  <img src=images/undraw_deliveries_qutl.png alt="images" >
-
-  <h1>We’re Under Maintenance</h1>
-  <p>Our site is upgrading for a better experience. We'll be back on <span class="highlight">30 July at 12 PM</span>.</p>
-  <div class="footer">— Tushar Raut</div>
-<div class="countdown" id="countdown">
+    <div class="countdown" id="countdown">
       <div><span id="days">00</span>Days</div>
       <div><span id="hours">00</span>Hrs</div>
       <div><span id="minutes">00</span>Min</div>
       <div><span id="seconds">00</span>Sec</div>
     </div>
+
+    <footer>— Tushar Raut</footer>
+  </div>
+
   <script>
     const countdown = () => {
       const end = new Date("July 30, 2025 12:00:00").getTime();
@@ -95,5 +46,4 @@
     setInterval(countdown, 1000);
   </script>
 </body>
-  
 </html>
