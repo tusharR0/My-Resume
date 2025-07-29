@@ -221,6 +221,76 @@
         justify-content: center;
       }
     }
+    .summary-modern {
+  background: #ffffff;
+  padding: 60px 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  margin: 60px auto;
+  border-radius: 20px;
+  max-width: 1200px;
+  transition: all 0.4s ease;
+}
+
+.summary-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.summary-text {
+  flex: 1.4;
+}
+
+.summary-text h2 {
+  font-size: 2.2rem;
+  color: #00b894;
+  margin-bottom: 18px;
+}
+
+.summary-text p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+.summary-image {
+  flex: 1;
+  text-align: center;
+}
+
+.summary-image img {
+  width: 280px;
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.summary-image img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .summary-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .summary-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .summary-text p {
+    font-size: 1rem;
+  }
+
+  .summary-image img {
+    width: 220px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -237,18 +307,20 @@
     </ul>
   </nav>
 
-  <div class="content-wrapper">
-    <section class="page">
-      <h2>Summary</h2>
+  <section class="summary-modern">
+  <div class="summary-content">
+    <div class="summary-text">
+      <h2>About Me</h2>
       <p>
-        I'm a passionate Backend Developer with experience in designing, developing, and maintaining robust server-side logic, APIs, and databases. My expertise lies in creating scalable backend architectures using technologies like Node.js, Express, MySQL, and MongoDB.
-        Currently pursuing my Graduation at <strong>S.B. Jain Institute of Technology, Management & Research</strong>, I strive to build innovative and efficient digital experiences.
+        I'm a passionate <strong>Backend Developer</strong> with experience in designing and building scalable server-side applications using Node.js, Express, MySQL, and MongoDB. Currently pursuing my degree at <strong>S.B. Jain Institute of Technology, Management & Research</strong>, I enjoy solving real-world problems with clean and efficient code. I focus on creating backend architectures that are secure, performant, and maintainable.
       </p>
-    </section>
-    <div class="profile-image">
-      <img src="images/my.png" alt="Tushar Raut Image">
+    </div>
+    <div class="summary-image">
+      <img src="images/my.png" alt="Tushar Raut" />
     </div>
   </div>
+</section>
+
 
   <section class="page profile-section">
     <h2>Profiles & Live Stats</h2>
