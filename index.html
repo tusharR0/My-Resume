@@ -3,131 +3,317 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Under Maintenance</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <title>Home - Tushar Raut</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    * {
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: linear-gradient(to right, #e8fff5, #d9ffec);
+      color: #123524;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px;
+      font-size: 2.8em;
+      font-style: italic;
+      background: linear-gradient(to right, #4caf50, #66bb6a);
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    nav {
+      background: #14532d;
+      text-align: right;
+      padding: 12px 30px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    nav ul {
+      list-style: none;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(to right, #d4fc79, #96e6a1);
-      color: #2d3436;
       display: flex;
+      justify-content: flex-end;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      color: #ffffff;
+      background: #2e7d32;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background: #43a047;
+      transform: scale(1.08);
+      box-shadow: 0 6px 15px rgba(76, 175, 80, 0.3);
+    }
+
+    .content-wrapper {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 40px;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 128, 0, 0.08);
+      gap: 40px;
+    }
+
+    .page {
+      flex: 1.5;
+    }
+
+    .profile-image {
+      flex: 1;
       text-align: center;
-      padding: 2rem;
     }
 
-    .container {
-      max-width: 600px;
-      background: white;
-      padding: 2rem;
-      border-radius: 1.5rem;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    .profile-image img {
+      width: 220px;
+      border-radius: 50%;
+      box-shadow: 0 8px 20px rgba(0, 128, 0, 0.15);
     }
 
-    .hero-img {
-      width: 100%;
-      max-width: 350px;
-      margin-bottom: 1.5rem;
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #222;
+    h2 {
+      color: #2e7d32;
+      font-size: 2.2em;
+      border-bottom: 4px solid #2e7d32;
+      display: inline-block;
+      margin-bottom: 20px;
+      padding-bottom: 4px;
     }
 
     p {
       font-size: 1.1rem;
-      margin-bottom: 2rem;
+      line-height: 1.8;
+      color: #123524;
     }
 
-    .highlight {
-      font-weight: bold;
-      color: #16a085;
+    .profile-section {
+      margin: 60px auto;
+      max-width: 1050px;
+      padding: 20px;
+      background: #f0fff7;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(76, 175, 80, 0.1);
     }
 
-    .countdown {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
+    .profiles-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-top: 30px;
     }
 
-    .countdown div {
-      background-color: #f1f2f6;
-      padding: 1rem;
-      border-radius: 1rem;
-      font-size: 1rem;
+    .profile-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(76, 175, 80, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(56, 142, 60, 0.2);
+    }
+
+    .profile-card img {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      margin-bottom: 12px;
+    }
+
+    .profile-card h3 {
+      margin: 10px 0 6px;
+      font-size: 1.2rem;
+      color: #1b5e20;
+    }
+
+    .profile-card p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    .profile-card a {
+      display: inline-block;
+      margin-top: 8px;
+      color: #2e7d32;
       font-weight: 600;
-      color: #2c3e50;
+      text-decoration: none;
+      transition: color 0.3s ease;
     }
 
-    .countdown div span {
-      display: block;
-      font-size: 2rem;
-      color: #ff4d6d;
-      margin-bottom: 0.3rem;
+    .profile-card a:hover {
+      color: #14532d;
+      text-decoration: underline;
     }
 
-    footer {
+    .leetcode-stats {
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .circle-stat {
+      position: relative;
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      background: conic-gradient(
+        #66bb6a 0% 30%,    
+        #ffee58 30% 80%,   
+        #ef5350 80% 100%   
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.05), 0 0 10px rgba(76, 175, 80, 0.15);
+    }
+
+    .solved-count {
+      font-size: 28px;
+      font-weight: bold;
+      color: #123524;
+    }
+
+    .circle-stat small {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.75rem;
+      color: #666;
+    }
+
+    .difficulty-breakdown {
+      list-style: none;
+      padding: 0;
+      margin: 0;
       font-size: 0.9rem;
-      color: #888;
+    }
+
+    .difficulty-breakdown li {
+      margin: 6px 0;
+      font-weight: 600;
+    }
+
+    .easy {
+      color: #66bb6a;
+    }
+
+    .medium {
+      color: #ffee58;
+    }
+
+    .hard {
+      color: #ef5350;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img
-      src="https://cdni.iconscout.com/illustration/premium/thumb/website-under-maintenance-2061966-1742259.png"
-      alt="Under Maintenance"
-      class="hero-img"
-    />
-    <h1>We're Under Maintenance</h1>
-    <p>
-      We're working hard to improve your experience.<br />
-      We'll be back on <span class="highlight">30 July at 12 PM</span>.
-    </p>
 
-    <div class="countdown" id="countdown">
-      <div><span id="days">00</span>Days</div>
-      <div><span id="hours">00</span>Hrs</div>
-      <div><span id="minutes">00</span>Min</div>
-      <div><span id="seconds">00</span>Sec</div>
+  <header>Tushar Raut</header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="certificates.html">Certificates</a></li>
+    </ul>
+  </nav>
+
+  <div class="content-wrapper">
+    <section class="page">
+      <h2>Summary</h2>
+      <p>
+        I'm a passionate Backend Developer with experience in designing, developing, and maintaining robust server-side logic, APIs, and databases. My expertise lies in creating scalable backend architectures using technologies like Node.js, Express, MySQL, and MongoDB.
+        I enjoy solving real-world problems by writing clean, efficient, and maintainable code.
+        Currently pursuing my Graduation at <strong>S.B. Jain Institute of Technology, Management & Research</strong>, I strive to build innovative and efficient digital experiences.
+      </p>
+    </section>
+    <div class="profile-image">
+      <img src="images/my.png" alt="Tushar Raut Image">
     </div>
-
-    <footer>— Tushar Raut</footer>
   </div>
 
+  <section class="page profile-section">
+    <h2>Profiles & Live Stats</h2>
+    <div class="profiles-container">
+      <div class="profile-card" id="leetcode-card">
+        <img src="images/leet.png" alt="LeetCode Logo">
+        <h3>LeetCode</h3>
+        <div class="leetcode-stats">
+          <div class="circle-stat">
+            <span id="total-solved" class="solved-count">--</span>
+            <small id="total-problems">Loading...</small>
+          </div>
+          <ul class="difficulty-breakdown">
+            <li><span class="easy">Easy</span> <span id="easy">--</span></li>
+            <li><span class="medium">Medium</span> <span id="medium">--</span></li>
+            <li><span class="hard">Hard</span> <span id="hard">--</span></li>
+          </ul>
+        </div>
+        <a href="https://leetcode.com/DvxgFDhYea/" target="_blank">Visit Profile →</a>
+      </div>
+
+      <div class="profile-card" id="hackerearth-card">
+        <img src="images/earth.png" alt="HackerEarth Logo">
+        <h3>Hackerearth</h3>
+        <p id="hackerearth-stats">Loading...</p>
+        <a href="https://www.hackerearth.com/@tusharraut704/" target="_blank">Visit Profile →</a>
+      </div>
+
+      <div class="profile-card" id="codeforces-card">
+        <img src="images/code.png" alt="Codeforces Logo">
+        <h3>Codeforces</h3>
+        <p id="codeforces-stats">Loading...</p>
+        <a href="https://codeforces.com/profile/your_username" target="_blank">Visit Profile →</a>
+      </div>
+
+      <div class="profile-card" id="codechef-card">
+        <img src="images/chef.jpg" alt="CodeChef Logo">
+        <h3>CodeChef</h3>
+        <p id="codechef-stats">Loading...</p>
+        <a href="https://www.codechef.com/users/your_username" target="_blank">Visit Profile →</a>
+      </div>
+    </div>
+  </section>
+
   <script>
-    const countdown = () => {
-      const end = new Date("July 30, 2025 12:00:00").getTime();
-      const now = new Date().getTime();
-      const diff = end - now;
-
-      if (diff < 0) return;
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      document.getElementById("days").textContent = String(days).padStart(2, '0');
-      document.getElementById("hours").textContent = String(hours).padStart(2, '0');
-      document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
-      document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
-    };
-
-    countdown();
-    setInterval(countdown, 1000);
+    const username = "DvxgFDhYea";
+    fetch(`https://leetcode-stats-api.herokuapp.com/${username}`)
+      .then((res) => res.json())
+      .then((data) => {
+        document.getElementById("total-solved").textContent = data.totalSolved;
+        document.getElementById("total-problems").textContent = `/ ${data.totalQuestions} Solved`;
+        document.getElementById("easy").textContent = `${data.easySolved} / ${data.totalEasy}`;
+        document.getElementById("medium").textContent = `${data.mediumSolved} / ${data.totalMedium}`;
+        document.getElementById("hard").textContent = `${data.hardSolved} / ${data.totalHard}`;
+      })
+      .catch((err) => {
+        console.error("Failed to fetch LeetCode stats", err);
+        document.getElementById("total-solved").textContent = "??";
+        document.getElementById("total-problems").textContent = "Error fetching";
+      });
   </script>
+
 </body>
 </html>
+
+
 
