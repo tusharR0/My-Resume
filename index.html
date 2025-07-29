@@ -14,20 +14,22 @@
       scroll-behavior: smooth;
     }
 
-    header {
+   header {
       text-align: center;
       padding: 30px;
       font-size: 2.8em;
-      background: linear-gradient(to right, #00c9a7, #a1ffce);
-      color: #fff;
+      font-style: italic;
+      background: linear-gradient(to right, #00ff88, #eafff7);
+      color: #111;
       font-weight: 700;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 255, 136, 0.12);
     }
+
 
     nav {
       background: #ffffff;
       padding: 12px 30px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 12px rgba(11, 6, 6, 0.13);
     }
 
     nav ul {
@@ -41,7 +43,7 @@
     }
 
     nav ul li a {
-      color: #00b894;
+      color: #222;
       background: #ecfffa;
       padding: 10px 20px;
       border-radius: 12px;
@@ -222,7 +224,7 @@
       }
     }
     .summary-modern {
-  background: #ffffff;
+  
   padding: 60px 30px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   margin: 60px auto;
@@ -258,6 +260,7 @@
 .summary-image {
   flex: 1;
   text-align: center;
+  animation: float 6s ease-in-out infinite;
 }
 
 .summary-image img {
@@ -265,12 +268,24 @@
   max-width: 100%;
   border-radius: 20px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: float 6s ease-in-out infinite;
 }
 
 .summary-image img:hover {
-  transform: scale(1.05);
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 
 @media (max-width: 768px) {
   .summary-content {
@@ -307,20 +322,19 @@
     </ul>
   </nav>
 
-  <section class="summary-modern">
-  <div class="summary-content">
-    <div class="summary-text">
-      <h2>About Me</h2>
-      <p>
-        I'm a passionate <strong>Backend Developer</strong> with experience in designing and building scalable server-side applications using Node.js, Express, MySQL, and MongoDB. Currently pursuing my degree at <strong>S.B. Jain Institute of Technology, Management & Research</strong>, I enjoy solving real-world problems with clean and efficient code. I focus on creating backend architectures that are secure, performant, and maintainable.
-      </p>
-    </div>
-    <div class="summary-image">
-      <img src="images/my.png" alt="Tushar Raut" />
+  <div class="summary-modern">
+    <div class="summary-content">
+      <div class="summary-text">
+        <h2>About Me</h2>
+        <p>
+          I'm a passionate <strong>Backend Developer</strong> with experience in designing and building scalable server-side applications using Node.js, Express, MySQL, and MongoDB. Currently pursuing my degree at <strong>S.B. Jain Institute of Technology, Management & Research</strong>, I enjoy solving real-world problems with clean and efficient code. I focus on creating backend architectures that are secure, performant, and maintainable.
+        </p>
+      </div>
+      <div class="summary-image">
+        <img src="images/my.png" alt="Tushar Raut" />
+      </div>
     </div>
   </div>
-</section>
-
 
   <section class="page profile-section">
     <h2>Profiles & Live Stats</h2>
@@ -383,6 +397,11 @@
   </script>
 </body>
 </html>
+
+
+
+
+
 
 
 
