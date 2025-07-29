@@ -5,332 +5,271 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Home - Tushar Raut</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background: linear-gradient(to right, #e0ffe7, #c1f0ff, #ffe8d6);
-      color: #222;
-      scroll-behavior: smooth;
-    }
-
-    /* Loader Animation */
-    #page-loader {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: rgba(255,255,255,0.9);
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: opacity 0.5s;
-    }
-    .loader-spinner {
-      width: 64px;
-      height: 64px;
-      border: 8px solid #00c9a7;
-      border-top: 8px solid #f4d35e;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg);}
-      100% { transform: rotate(360deg);}
-    }
-
-     header {
-      text-align: center;
-      padding: 30px;
-      font-size: 2.8em;
-      font-style: italic;
-      background: linear-gradient(to right, #00ff88, #eafff7);
-      color: #111;
-      font-weight: 700;
-      box-shadow: 0 4px 12px rgba(0, 255, 136, 0.12);
-    }
-
-    nav {
-      background: #ffffff;
-      padding: 12px 30px;
-      box-shadow: 0 2px 12px rgba(11, 6, 6, 0.13);
-    }
-
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    nav ul li a {
-      color: #222;
-      background: #ecfffa;
-      padding: 10px 20px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      background: #00c9a7;
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 201, 167, 0.3);
-    }
-
-    .content-wrapper {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 60px auto;
-      padding: 40px;
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-      gap: 40px;
-    }
-
-    .page {
-      flex: 1.5;
-    }
-
-    .profile-image {
-      flex: 1;
-      text-align: center;
-    }
-
-    .profile-image img {
-      width: 220px;
-      height: auto;
-      border-radius: 50%;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    h2 {
-      color: #00b894;
-      font-size: 2em;
-      border-bottom: 3px solid #00b894;
-      display: inline-block;
-      margin-bottom: 16px;
-    }
-
-    p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-
-    .profile-section {
-      margin: 60px auto;
-      max-width: 1200px;
-      padding: 40px;
-      background: #f7fffe;
-      border-radius: 20px;
-      box-shadow: 0 10px 20px rgba(0, 201, 167, 0.08);
-    }
-
-    .profiles-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-      margin-top: 30px;
-    }
-
-    .profile-card {
-      background: white;
-      border-radius: 16px;
-      padding: 24px;
-      text-align: center;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .profile-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 30px rgba(0, 201, 167, 0.15);
-    }
-
-    .profile-card img {
-      width: 64px;
-      height: 64px;
-      object-fit: contain;
-      margin-bottom: 14px;
-    }
-
-    .profile-card h3 {
-      margin: 10px 0 6px;
-      font-size: 1.2rem;
-      color: #00997a;
-    }
-
-    .profile-card p {
-      font-size: 0.95rem;
-      color: #444;
-      min-height: 2.4em;
-    }
-
-    .profile-card a {
-      display: inline-block;
-      margin-top: 10px;
-      color: #00b894;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .profile-card a:hover {
-      text-decoration: underline;
-    }
-
-    /* LeetCode Chart */
-    .leetcode-stats {
-      margin-top: 16px;
-      text-align: center;
-    }
-
-    .circle-stat {
-      position: relative;
-      width: 130px;
-      height: 130px;
-      margin: 0 auto 12px;
-      border-radius: 50%;
-      background: conic-gradient(
-      #00c9a7 0% 30%,
-      #f4d35e 30% 80%,
-      #ee6c4d 80% 100%
-      );
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
-    }
-
-    .solved-count {
-      font-size: 28px;
-      font-weight: bold;
-      color: #333;
-    }
-
-    .circle-stat small {
-      position: absolute;
-      bottom: 10px;
-      font-size: 0.75rem;
-      color: #666;
-    }
-
-    .difficulty-breakdown {
-      list-style: none;
-      padding: 0;
-      font-size: 0.9rem;
-    }
-
-    .difficulty-breakdown li {
-      margin: 6px 0;
-      font-weight: 600;
-    }
-
-    .easy { color: #00c9a7; }
-    .medium { color: #f4d35e; }
-    .hard { color: #ee6c4d; }
-
-    @media (max-width: 768px) {
-      .content-wrapper {
-      flex-direction: column;
-      text-align: center;
-      }
-
-      nav ul {
-      justify-content: center;
-      }
-    }
-    .summary-modern {
-    
-    padding: 60px 30px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-    margin: 60px auto;
-    border-radius: 20px;
-    max-width: 1200px;
-    transition: all 0.4s ease;
+  <link rel="stylesheet" href="style/main.css" />
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: linear-gradient(to right, #ffe6f0, #ffe6f9);
+    color: #222;
+    scroll-behavior: smooth;
   }
 
-  .summary-content {
+  header {
+    text-align: center;
+    padding: 30px;
+    font-size: 2.8em;
+    font-style: italic;
+    background: linear-gradient(to right, #ff4f7b, #ff758c);
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  nav {
+    background: #35062f;
+    text-align: right;
+    padding: 12px 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
+    justify-content: flex-end;
+    gap: 18px;
     flex-wrap: wrap;
   }
 
-  .summary-text {
-    flex: 1.4;
+  nav ul li a {
+    color: #fff;
+    background: #620042;
+    padding: 10px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.4s ease;
   }
 
-  .summary-text h2 {
-    font-size: 2.2rem;
-    color: #00b894;
-    margin-bottom: 18px;
+  nav ul li a:hover {
+    background: #ff4f7b;
+    transform: scale(1.08);
+    box-shadow: 0 6px 15px rgba(255, 79, 123, 0.4);
   }
 
-  .summary-text p {
-    font-size: 1.15rem;
-    line-height: 1.8;
-    color: #333;
+  .content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    gap: 40px;
   }
 
-  .summary-image {
+  .page {
+    flex: 1.5;
+  }
+
+  .profile-image {
     flex: 1;
     text-align: center;
-    animation: float 6s ease-in-out infinite;
   }
 
-  .summary-image img {
-    width: 280px;
-    max-width: 100%;
-    border-radius: 20px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .summary-image img:hover {
-    transform: scale(1.05) translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  }
-
-  @keyframes float {
-    0%, 100% {
-    transform: translateY(30px);
-    }
-    50% {
-    transform: translateY(-8px);
-    }
-  }
-
-
-  @media (max-width: 768px) {
-    .summary-content {
-    flex-direction: column;
-    text-align: center;
-    }
-
-    .summary-text h2 {
-    font-size: 1.8rem;
-    }
-
-    .summary-text p {
-    font-size: 1rem;
-    }
-
-    .summary-image img {
+  .profile-image img {
     width: 220px;
-    }
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeInRight 1.2s ease-in-out;
   }
 
-    </style>
+  h2 {
+    color: #ff3c66;
+    font-size: 2.2em;
+    border-bottom: 4px solid #ff3c66;
+    display: inline-block;
+    margin-bottom: 20px;
+    padding-bottom: 4px;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  /* 🔥 Profile Section */
+  .profile-section {
+    margin: 60px auto;
+    max-width: 1050px;
+    padding: 20px;
+    background: #fff7fb;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 79, 123, 0.1);
+  }
+
+  .profiles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 30px;
+  }
+
+  .profile-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(255, 79, 123, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 79, 123, 0.25);
+  }
+
+  .profile-card img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    margin-bottom: 12px;
+  }
+
+  .profile-card h3 {
+    margin: 10px 0 6px;
+    font-size: 1.2rem;
+    color: #6f1a44;
+  }
+
+  .profile-card p {
+    font-size: 0.95rem;
+    color: #444;
+    min-height: 2.4em;
+  }
+
+  .profile-card a {
+    display: inline-block;
+    margin-top: 8px;
+    color: #ff3c66;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .profile-card a:hover {
+    color: #35062f;
+    text-decoration: underline;
+  }
+
+  /* ✅ LeetCode Live Stats Style */
+  .leetcode-stats {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.circle-stat {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #00c9a7 0% 30%,    /* Easy: cyan green */
+    #f4d35e 30% 80%,   /* Medium: yellow */
+    #ee6c4d 80% 100%   /* Hard: coral red */
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.1), 0 0 10px rgba(255, 60, 102, 0.2);
+  animation: rotateChart 4s ease-out forwards;
+  transition: background 0.3s ease;
+}
+
+@keyframes rotateChart {
+  from {
+    background: conic-gradient(#ccc 0% 100%);
+  }
+  to {
+    background: conic-gradient(
+      #00c9a7 0% 30%,
+      #f4d35e 30% 80%,
+      #ee6c4d 80% 100%
+    );
+  }
+}
+
+.solved-count {
+  font-size: 28px;
+  font-weight: bold;
+  color: #222;
+}
+
+.circle-stat small {
+  position: absolute;
+  bottom: 10px;
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.difficulty-breakdown {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.difficulty-breakdown li {
+  margin: 6px 0;
+  font-weight: 600;
+}
+
+.easy {
+  color: #00c9a7;
+}
+
+.medium {
+  color: #f4d35e;
+}
+
+.hard {
+  color: #ee6c4d;
+}
+  .circle-stat::after {
+  content: "";
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 12px rgba(255, 60, 102, 0.15);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 rgba(255, 60, 102, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 60, 102, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(255, 60, 102, 0.1);
+  }
+}
+
+
+  }
+</style>
+
 </head>
 <body>
 
@@ -346,92 +285,90 @@
     </ul>
   </nav>
 
-  <div class="summary-modern">
-    <div class="summary-content">
-      <div class="summary-text">
-        <h2>About Me</h2>
-        <p>
-          I'm a passionate <strong>Backend Developer</strong> with experience in designing and building scalable server-side applications using Node.js, Express, MySQL, and MongoDB. Currently pursuing my degree at <strong>S.B. Jain Institute of Technology, Management & Research</strong>, I enjoy solving real-world problems with clean and efficient code. I focus on creating backend architectures that are secure, performant, and maintainable.
-        </p>
-      </div>
-      <div class="summary-image">
-        <img src="images/my.png" alt="Tushar Raut" />
-      </div>
+  <!-- ✅ Main Section with Image on Right -->
+  <div class="content-wrapper">
+    <section class="page">
+      <h2>Summary</h2>
+      <p>
+       I'm a passionate Backend Developer with experience in designing, developing, and maintaining robust server-side logic, APIs, and databases. My expertise lies in creating scalable backend architectures using technologies like Node.js, Express, MySQL, and MongoDB. 
+        I enjoy solving real-world problems by writing clean, efficient, and maintainable code. 
+        Currently pursuing my Graduation at <strong>S.B. Jain Institute of Technology, Management & Research</strong>, I strive to build innovative and efficient digital experiences.
+      </p>
+    </section>
+    
+    
+    <div class="profile-image">
+      <img src=images/my.png alt="Tushar Raut Image">
     </div>
   </div>
-
   <section class="page profile-section">
-    <h2>Profiles & Live Stats</h2>
-    <div class="profiles-container">
-      <div class="profile-card" id="leetcode-card">
-        <img src="images/leet.png" alt="LeetCode Logo">
-        <h3>LeetCode</h3>
-        <div class="leetcode-stats">
-          <div class="circle-stat">
-            <span id="total-solved" class="solved-count">--</span>
-            <small id="total-problems">Loading...</small>
-          </div>
-          <ul class="difficulty-breakdown">
-            <li><span class="easy">Easy</span> <span id="easy">--</span></li>
-            <li><span class="medium">Med.</span> <span id="medium">--</span></li>
-            <li><span class="hard">Hard</span> <span id="hard">--</span></li>
-          </ul>
-        </div>
-        <a href="https://leetcode.com/DvxgFDhYea/" target="_blank">Visit Profile →</a>
-      </div>
+  <h2>Profiles & Live Stats</h2>
+  <div class="profiles-container">
+   <div class="profile-card" id="leetcode-card">
+  <img src="images/leet.png" alt="LeetCode Logo" height="64px">
+  <h3>LeetCode</h3>
 
-      <div class="profile-card">
-        <img src="images/earth.png" alt="Hackerearth Logo">
-        <h3>Hackerearth</h3>
-        <p>Loading...</p>
-        <a href="https://www.hackerearth.com/@tusharraut704/" target="_blank">Visit Profile →</a>
-      </div>
-
-      <div class="profile-card">
-        <img src="images/code.png" alt="Codeforces Logo">
-        <h3>Codeforces</h3>
-        <p>Loading...</p>
-        <a href="https://codeforces.com/profile/your_username" target="_blank">Visit Profile →</a>
-      </div>
-
-      <div class="profile-card">
-        <img src="images/chef.jpg" alt="CodeChef Logo">
-        <h3>CodeChef</h3>
-        <p>Loading...</p>
-        <a href="https://www.codechef.com/users/your_username" target="_blank">Visit Profile →</a>
-      </div>
+  <div class="leetcode-stats">
+    <div class="circle-stat">
+      <span id="total-solved" class="solved-count">--</span>
+      <small id="total-problems">Loading...</small>
     </div>
-  </section>
 
+    <ul class="difficulty-breakdown">
+      <li><span class="easy">Easy</span> <span id="easy">--</span></li>
+      <li><span class="medium">Med.</span> <span id="medium">--</span></li>
+      <li><span class="hard">Hard</span> <span id="hard">--</span></li>
+    </ul>
+  </div>
+
+  <a href="https://leetcode.com/DvxgFDhYea/" target="_blank">Visit Profile →</a>
+</div>
+
+    <!-- Hackerearth -->
+    <div class="profile-card" id="hackerearth-card">
+      <img src=images\earth.png alt="HackerRank Logo" height="100px">
+      <h3>Hackerearth</h3>
+      <p id="hackerearth-stats">Loading...</p>
+      <a href="https://www.hackeearth.com/@tusharraut704/" target="_blank">Visit Profile →</a>
+    </div>
+    <!-- Codeforces -->
+    <div class="profile-card" id="codeforces-card">
+      <img src=images\code.png alt="Codeforces Logo" height="200px" width="100">
+      <h3>Codeforces</h3>
+      <p id="codeforces-stats">Loading...</p>
+      <a href="https://codeforces.com/profile/your_username" target="_blank">Visit Profile →</a>
+    </div>
+    <!-- CodeChef -->
+    <div class="profile-card" id="codechef-card">
+      <img src=images\chef.jpg alt="CodeChef Logo" height="100px">
+      <h3>CodeChef</h3>
+      <p id="codechef-stats">Loading...</p>
+      <a href="https://www.codechef.com/users/your_username" target="_blank">Visit Profile →</a>
+    </div>
+  </div>
+</section>
+
+
+  <script src="script/animation.js"></script>
   <script>
-    const username = "DvxgFDhYea";
-    fetch(`https://leetcode-stats-api.herokuapp.com/${username}`)
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById("total-solved").textContent = data.totalSolved;
-        document.getElementById("total-problems").textContent = `/ ${data.totalQuestions} Solved`;
-        document.getElementById("easy").textContent = `${data.easySolved} / ${data.totalEasy}`;
-        document.getElementById("medium").textContent = `${data.mediumSolved} / ${data.totalMedium}`;
-        document.getElementById("hard").textContent = `${data.hardSolved} / ${data.totalHard}`;
-      })
-      .catch(err => {
-        document.getElementById("total-solved").textContent = "??";
-        document.getElementById("total-problems").textContent = "Error fetching";
-      });
-  </script>
+  const username = "DvxgFDhYea"; // your LeetCode username
+
+  fetch(`https://leetcode-stats-api.herokuapp.com/${username}`)
+    .then((res) => res.json())
+    .then((data) => {
+      document.getElementById("total-solved").textContent = data.totalSolved;
+      document.getElementById("total-problems").textContent = `/ ${data.totalQuestions} Solved`;
+
+      document.getElementById("easy").textContent = `${data.easySolved} / ${data.totalEasy}`;
+      document.getElementById("medium").textContent = `${data.mediumSolved} / ${data.totalMedium}`;
+      document.getElementById("hard").textContent = `${data.hardSolved} / ${data.totalHard}`;
+    })
+    .catch((err) => {
+      console.error("Failed to fetch LeetCode stats", err);
+      document.getElementById("total-solved").textContent = "??";
+      document.getElementById("total-problems").textContent = "Error fetching";
+    });
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
